@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_171309) do
+ActiveRecord::Schema.define(version: 2018_11_26_174340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "status", default: "pending"
+    t.integer "total_price"
+    t.date "starting_date"
+    t.date "ending_date"
+    t.bigint "plant_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plant_id"], name: "index_bookings_on_plant_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "plants", force: :cascade do |t|
+    t.string "species"
+    t.integer "price_per_day"
+    t.string "city_location"
+    t.string "main_picture"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_plants_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +52,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_171309) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "plants"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "plants", "users"
 end
