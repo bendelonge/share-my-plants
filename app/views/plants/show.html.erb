@@ -7,7 +7,9 @@
         <h2><%=  @plant.species %></h2>
         <h3><%= @plant.city_location %></h3>
         <h4>$<%= @plant.price_per_day / 100 %> per day</h2>
-        <div class="btn btn-warning">Book it !</div>
+
+        <div class="btn btn-warning"></div>
+        <%= link_to 'Book it',  plant_bookings_path(@plant), :method => :post %>
       </div>
     </div>
     <p><%= @plant.description %></p>
