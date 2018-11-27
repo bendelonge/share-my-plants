@@ -1,5 +1,8 @@
-<h1>Bookings#index</h1>
 <div class="container">
+  <div class="text-cente">
+  <h1>Bookings#index</h1>
+</div>
+
   <div class="row">
     <div class="col-xs-6">
 
@@ -7,24 +10,25 @@
         <li class="list-group-item">
           <h3>renter</h3>
           <%@requested_bookings.each do |requested_booking|  %>
-            <p>Your booking from <%= requested_booking.user.first_name %>'s <%= current_user.plants.specie %> is <%= requested_booking.status %></p>
+            <p>Your booking from <%= requested_booking.plant.user.first_name %>'s <%= requested_booking.plant.species %> is <%= requested_booking.status %></p>
           <% end %>
         </li>
       </ul>
     </div>
 
     <div class="col-xs-6">
-      <ul class="list-group list-group-flush text-center">
+      <ul class="list-group list-group-flush">
         <li class="list-group-item">
-          <h3>Your </h3>
+          <h3>Owner </h3>
             <%@received_bookings.each do |received_booking|  %>
-              <p><%= received_booking.status %></p>
+              <p>Do you want to rent your  <%= received_booking.plant.species %> to <%= received_booking.user.first_name %>: <%= received_booking.status %></p>
              <% end %>
         </li>
       </ul>
     </div>
   </div>
 </div>
+
 
 
 
