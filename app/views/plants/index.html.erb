@@ -1,2 +1,15 @@
-<h1>Plant#index</h1>
-<p>Find me in app/views/plant/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <% @plants.each do |plant| %>
+    <div class="col-xs-12 col-sm-3">
+      <div class="card" style="background-image: url('<%= cl_image_path plant.main_picture, height: 300, crop: :fill unless plant.main_picture.nil? %>')" >
+        <div class="card-description">
+          <h2><%= plant.species %></h2>
+          <p><%= plant.city_location %></p>
+        </div>
+        <%= link_to '', plant_path(plant), class: "card-link" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
