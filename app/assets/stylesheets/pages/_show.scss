@@ -1,0 +1,47 @@
+.plant-summary {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.plant-main-infos {
+  width: 200px;
+  margin-left: 30px;
+  text-align: center;
+}
+
+.plant-main-infos h2 {
+  color: $green;
+}
+
+
+.plant-owner {
+  display: flex;
+}
+
+.plant-description {
+  width: 600px;
+}
+
+.plant-description p {
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.owner-title {
+  border-bottom: 1px dotted $gray;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.owner-title h2 {
+  font-size: 20px;
+}
+.owner-picture {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.owner-details {
+  margin-left: 30px;
+}
