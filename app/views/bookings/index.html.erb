@@ -1,0 +1,30 @@
+<h1>Bookings#index</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <h3>renter</h3>
+          <%@requested_bookings.each do |requested_booking|  %>
+            <p>Your booking from <%= requested_booking.user.first_name %>'s <%= current_user.plants.specie %> is <%= requested_booking.status %></p>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-6">
+      <ul class="list-group list-group-flush text-center">
+        <li class="list-group-item">
+          <h3>Your </h3>
+            <%@received_bookings.each do |received_booking|  %>
+              <p><%= received_booking.status %></p>
+             <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
