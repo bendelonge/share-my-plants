@@ -1,4 +1,5 @@
 class Plant < ApplicationRecord
+  mount_uploader :main_picture, PhotoUploader
   belongs_to :user
   has_many :bookings
 
