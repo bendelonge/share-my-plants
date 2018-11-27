@@ -1,4 +1,4 @@
-class PlantController < ApplicationController
+class PlantsController < ApplicationController
   before_action :find_plant, only: [:show]
   def index
   end
