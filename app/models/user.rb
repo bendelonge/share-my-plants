@@ -4,6 +4,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :plants
+
+  # as renter
   has_many :bookings
+
+  # as owner
+  has_many :plants
+  has_many :received_bookings, through: :plants, source: :bookings
 end
