@@ -5,6 +5,7 @@ class PlantsController < ApplicationController
   end
 
   def show
+    @owner = @plant.user
   end
 
 
