@@ -1,6 +1,8 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <a class="logo">share my plants</a>
+  <%= link_to landing_path, 'share my plants', class: "logo" do %>
+    <%= image_tag "logo.png", height: 50 %>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
