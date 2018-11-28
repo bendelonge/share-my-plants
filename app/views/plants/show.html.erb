@@ -1,34 +1,39 @@
 <div class="container">
-  <div class="plant-description">
-    <div class="plant-summary">
-      <div class="card" style="background-image: url('<%= cl_image_path @plant.main_picture, height: 300, crop: :fill %>')" >
-      </div>
-      <div class="plant-main-infos">
-        <h2><%=  @plant.species %></h2>
-        <h3><%= @plant.city_location %></h3>
-        <h4>$<%= @plant.price_per_day / 100 %> per day</h2>
+  <div class="grid">
 
-        <div class="btn btn-warning"></div>
-        <%= link_to 'Book it',  plant_bookings_path(@plant), :method => :post %>
+    <div class="plant-description">
+      <div class="plant-summary">
+        <div class="card" style="background-image: url('<%= cl_image_path @plant.main_picture, height: 300, crop: :fill %>')" >
+        </div>
+        <div class="plant-main-infos">
+          <h2><%=  @plant.species %></h2>
+          <h3><%= @plant.city_location %></h3>
+          <h4>$<%= (@plant.price_per_day.to_f / 100) %> per day</h2>
+        </div>
       </div>
-    </div>
-    <p><%= @plant.description %></p>
-  </div>
-  <div class="owner-title">
-    <h2>Contact this owner of this plant</h2>
-  </div>
-  <div class="plant-owner">
-      <div class="owner-picture" style="background-image: url('<%= cl_image_path @owner.profile_picture, height: 150, :crop => :thumb, :gravity => :face %>')" >
-      </div>
-    <div class="owner-details">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= @owner.first_name%> <%= @owner.last_name %></li>
-        <li class="list-group-item"><i class="fas fa-phone"></i> <%= @owner.phone_number %></li>
-        <li class="list-group-item"><i class="fas fa-at"></i> <%= @owner.email %></li>
-      </ul>
+      <p><%= @plant.description %></p>
     </div>
 
+    <div class="owner-description">
+      <div class="owner-title">
+        <h2>Contact the owner of this plant</h2>
+      </div>
+      <div class="plant-owner">
+          <div class="owner-picture" style="background-image: url('<%= cl_image_path @owner.profile_picture, height: 150, :crop => :thumb, :gravity => :face %>')" >
+          </div>
+        <div class="owner-details">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= @owner.first_name%> <%= @owner.last_name %></li>
+            <li class="list-group-item"><i class="fas fa-phone"></i> <%= @owner.phone_number %></li>
+            <li class="list-group-item"><i class="fas fa-at"></i> <%= @owner.email %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
+    <div class="booking-form">
+      <%= render 'form' %>
+    </div>
 
   </div>
 </div>
