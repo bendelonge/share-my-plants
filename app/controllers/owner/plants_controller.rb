@@ -1,7 +1,5 @@
 class Owner::PlantsController < ApplicationController
-
   def index
-
     @plants = current_user.plants
   end
 
@@ -17,6 +15,22 @@ class Owner::PlantsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @plant = Plant.find(params[:id])
+  end
+
+  def update
+    @plant = Plant.find(params[:id])
+    @plant.update(plant_params)
+    redirect_to owner_plants_path
+  end
+
+  def destroy
+    @plant = Plant.find(params[:id])
+    @plant.destroy
+    redirect_to owner_plants_path
   end
 
 private
