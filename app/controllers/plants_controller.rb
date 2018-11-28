@@ -3,11 +3,17 @@ class PlantsController < ApplicationController
   before_action :find_plant, only: [:show]
 
   def index
+
     if user_signed_in?
       @plants = Plant.where.not(latitude: nil, longitude: nil, user: current_user.id)
     else
       @plants = Plant.where.not(latitude: nil, longitude: nil)
     end
+
+    if params[:city_location].present?
+      @plants = @plants.near(params[:city_location], 10)
+    end
+
 
       @markers = @plants.map do |plant|
         {
@@ -29,3 +35,6 @@ class PlantsController < ApplicationController
     @plant = Plant.find(params[:id])
   end
 end
+
+
+# @flats = @flats.near(params[:city], 10)
