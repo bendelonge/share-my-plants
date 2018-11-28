@@ -12,28 +12,30 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new
+    @booking = Booking.new (booking_params)
     @booking.plant_id = params[:plant_id]
     @booking.user_id = current_user.id
-    @booking.starting_date = DateTime.now
-    @booking.ending_date = '2018-12-31'
-    @booking.total_price = 100
+    @booking.total_price = calculate_total_price
     @booking.save
     redirect_to bookings_path
   end
 
   def accept
-    puts "IL L A ACCEPTEEEEEEE"
     @booking.status = "approved"
     @booking.save!
     redirect_to bookings_path
-
   end
 
   def deny
     @booking.status = "denied"
     @booking.save!
     redirect_to bookings_path
+  end
+
+  def calculate_total_price
+    booking_duration = 1 + (@booking.ending_date - @booking.starting_date).to_i
+    plant_price = @booking.plant.price_per_day
+    return booking_duration * plant_price
   end
 
 
@@ -43,4 +45,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def booking_params
+    params.require(:booking).permit(:starting_date, :ending_date)
+  end
 end

@@ -1,11 +1,33 @@
+.grid{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: calc(100vh - 70px);
+  padding: 15px;
+}
+
+
+.plant-description {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.owner-description{
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 2;
+}
+
+.booking-form{
+  grid-column: 3 / span 2;
+  grid-row: 2 / span 2;
+}
+
 .plant-summary {
   display: flex;
-  width: 400px;
   justify-content: space-between;
 }
 
 .plant-main-infos {
-  width: 200px;
   margin-left: 30px;
   text-align: center;
 }
@@ -20,7 +42,6 @@
 }
 
 .plant-description {
-  width: 600px;
 }
 
 .plant-description p {
