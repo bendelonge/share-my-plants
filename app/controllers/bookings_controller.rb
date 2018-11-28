@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :find_booking, only: [:accept, :deny]
+
   def index
     @requested_bookings = current_user.bookings
     @received_bookings = current_user.received_bookings
@@ -18,6 +20,18 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def accept
+    @booking.status = "approved"
+    @booking.save!
+    redirect_to bookings_path
+  end
+
+  def deny
+    @booking.status = "denied"
+    @booking.save!
+    redirect_to bookings_path
+  end
+
   def calculate_total_price
     booking_duration = 1 + (@booking.ending_date - @booking.starting_date).to_i
     plant_price = @booking.plant.price_per_day
@@ -26,9 +40,12 @@ class BookingsController < ApplicationController
 
 
   private
+
+  def find_booking
+    @booking = Booking.find(params[:id])
+  end
+
   def booking_params
     params.require(:booking).permit(:starting_date, :ending_date)
   end
-
-
 end
