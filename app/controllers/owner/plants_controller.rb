@@ -10,6 +10,9 @@ class Owner::PlantsController < ApplicationController
   def create
     @plant = Plant.new(plant_params)
     @plant.user = current_user
+    if @plant[:main_picture].nil?
+      @plant[:main_picture] = "image/upload/v1543429623/kial7bgs4t9f2awd6es8.png"
+    end
     if @plant.save
       redirect_to owner_plants_path
     else
@@ -36,6 +39,8 @@ class Owner::PlantsController < ApplicationController
 private
 
   def plant_params
-     params.require(:plant).permit(:species, :price_per_day, :main_picture, :description, :city_location)
+    params[:plant][:price_per_day] = params[:plant][:price_per_day].to_f * 100
+    params.require(:plant).permit(:species, :price_per_day, :main_picture, :description, :city_location)
   end
+
 end
