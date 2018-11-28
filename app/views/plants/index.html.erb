@@ -4,8 +4,8 @@
   </div>
 
       <%= form_tag plants_path, method: :get do %>
-      <%= text_field_tag :city_location,
-        params[:city_location],
+      <%= text_field_tag :location,
+        params[:location],
         class: "form-control",
         placeholder: "Where do you need a plant ?"
       %>
