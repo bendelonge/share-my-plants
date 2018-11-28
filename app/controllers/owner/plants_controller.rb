@@ -10,6 +10,9 @@ class Owner::PlantsController < ApplicationController
   def create
     @plant = Plant.new(plant_params)
     @plant.user = current_user
+    if @plant[:main_picture].nil?
+      @plant[:main_picture] = "image/upload/v1543426858/dbkzj7d2xhp9lpubvbox.jpg"
+    end
     if @plant.save
       redirect_to owner_plants_path
     else
