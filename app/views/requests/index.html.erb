@@ -1,0 +1,32 @@
+<div class="container-bookings">
+   <h3>renter</h3>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+
+      <%@requested_bookings.each do |requested_booking|  %>
+        <div class="message">
+        <%= cl_image_tag requested_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
+          <div class="message-name">
+            <h3><%= requested_booking.plant.species %></h3>
+            <p><%= requested_booking.created_at %></p>
+          </div>
+          <div class="message-body">
+            <p>
+             Your booking from <%= requested_booking.plant.user.first_name %>'s <%= requested_booking.plant.species %> is
+            </p>
+          </div>
+          <div class="message-status">
+            <p class="status <%=requested_booking.status%>"><%= requested_booking.status %></p>
+            <p class="price">€<%= (requested_booking.total_price.to_f)/100  %></p>
+          </div>
+        </div>
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+
+
+
+

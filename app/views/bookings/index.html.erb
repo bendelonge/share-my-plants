@@ -1,72 +1,38 @@
 <div class="container-bookings">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <h3>renter</h3>
-          <%@requested_bookings.each do |requested_booking|  %>
-            <div class="message">
-            <%= cl_image_tag requested_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
-<!--             unless requested_booking.plant.main_picture.nil?
- -->          <div class="message-name">
-                <h3><%= requested_booking.plant.species %></h3>
-                <p><%= requested_booking.created_at %></p>
-              </div>
-              <div class="message-body">
-            <!--     <p><strong>I am not sure yet!</strong></p> -->
-                <p>
-                 Your booking from <%= requested_booking.plant.user.first_name %>'s <%= requested_booking.plant.species %> is
-                </p>
-              </div>
-              <div class="message-status">
-                <p class="status <%=requested_booking.status%>"><%= requested_booking.status %></p>
-                <p class="price">€<%= (requested_booking.total_price.to_f)/100  %></p>
-              </div>
+  <h3>Owner </h3>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <%@received_bookings.each do |received_booking|  %>
+          <div class="message">
+            <%= cl_image_tag received_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
+              <div class="message-name">
+              <h3><%= received_booking.plant.species %></h3>
+              <p><%= received_booking.created_at %></p>
             </div>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-
-    <div class="col-xs-12 col-sm-6">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <h3>Owner </h3>
-            <%@received_bookings.each do |received_booking|  %>
-              <div class="message">
-                <%= cl_image_tag received_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
-<!--                 unless received_booking.plant.main_picture.nil?
- -->            <div class="message-name">
-                  <h3><%= received_booking.plant.species %></h3>
-                  <p><%= received_booking.created_at %></p>
-                </div>
-                <div class="message-body">
-                  <p>
-                   Your booking from <%= received_booking.user.first_name %>'s <%= received_booking.plant.species %> is
-                  </p>
-                </div>
-                <div class="message-status">
-                  <%if received_booking.status == "pending"%>
-                    <%= link_to accept_booking_path(received_booking), method: :patch do %>
-                      <div class="btn-booking btn-success text-center">Approve</div>
-                    <% end %>
-                    <%= link_to deny_booking_path(received_booking), method: :patch do %>
-                      <div class="btn-booking btn-danger text-center">Deny</div>
-                    <% end %>
-                  <%else %>
-                    <p class='status <%=received_booking.status%>'><%= received_booking.status %></p>
-                  <%end %>
+            <div class="message-body">
+              <p>
+               Your booking from <%= received_booking.user.first_name %>'s <%= received_booking.plant.species %> is
+              </p>
+            </div>
+            <div class="message-status">
+              <%if received_booking.status == "pending"%>
+                <%= link_to accept_booking_path(received_booking), method: :patch do %>
+                  <div class="btn-booking btn-success text-center">Approve</div>
+                <% end %>
+                <%= link_to deny_booking_path(received_booking), method: :patch do %>
+                  <div class="btn-booking btn-danger text-center">Deny</div>
+                <% end %>
+              <%else %>
+                <p class='status <%=received_booking.status%>'><%= received_booking.status %></p>
+              <%end %>
 
 
-                  <p class="price">€<%= (received_booking.total_price.to_f)/100 %></p>
-                </div>
-              </div>
-             <% end %>
-        </li>
-      </ul>
-    </div>
-  </div>
+              <p class="price">€<%= (received_booking.total_price.to_f)/100 %></p>
+            </div>
+          </div>
+         <% end %>
+    </li>
+  </ul>
 </div>
 
 
