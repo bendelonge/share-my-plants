@@ -19,12 +19,6 @@ class Owner::PlantsController < ApplicationController
     end
   end
 
-  def destroy
-    @plant = Plants.find(params[:id])
-    @plant.destroy
-    redirect_to owner_plants_path
-  end
-
 private
 
   def plant_params
