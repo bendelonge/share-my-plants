@@ -1,3 +1,9 @@
+.container-bookings {
+  // margin-right: 15vh;
+  // margin-left: 15vh
+  margin: 15vh
+}
+
 .message {
   display: flex;
   align-items: center;
@@ -17,6 +23,7 @@
 .message-name h3 {
   font-size: 13px;
   margin-bottom: 0px;
+  color: $green;
 }
 .message-name p {
   font-size: 13px;

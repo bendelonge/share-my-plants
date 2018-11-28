@@ -1,27 +1,57 @@
-<div class="container">
-  <div class="text-cente">
-  <h1>Bookings#index</h1>
-</div>
-
+<div class="container-bookings">
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-12 col-sm-6">
 
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
           <h3>renter</h3>
           <%@requested_bookings.each do |requested_booking|  %>
-            <p>Your booking from <%= requested_booking.plant.user.first_name %>'s <%= requested_booking.plant.species %> is <%= requested_booking.status %></p>
+            <div class="message">
+            <%= cl_image_tag requested_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
+<!--             unless requested_booking.plant.main_picture.nil?
+ -->          <div class="message-name">
+                <h3><%= requested_booking.plant.species %></h3>
+                <p><%= requested_booking.created_at %></p>
+              </div>
+              <div class="message-body">
+            <!--     <p><strong>I am not sure yet!</strong></p> -->
+                <p>
+                 Your booking from <%= requested_booking.plant.user.first_name %>'s <%= requested_booking.plant.species %> is
+                </p>
+              </div>
+              <div class="message-status">
+                <p class="status pending"><%= requested_booking.status %></p>
+                <p class="price">€<%= requested_booking.total_price %></p>
+              </div>
+            </div>
           <% end %>
         </li>
       </ul>
     </div>
 
-    <div class="col-xs-6">
+    <div class="col-xs-12 col-sm-6">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
           <h3>Owner </h3>
             <%@received_bookings.each do |received_booking|  %>
-              <p>Do you want to rent your  <%= received_booking.plant.species %> to <%= received_booking.user.first_name %>: <%= received_booking.status %></p>
+              <div class="message">
+                <%= cl_image_tag received_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
+<!--                 unless received_booking.plant.main_picture.nil?
+ -->            <div class="message-name">
+                  <h3><%= received_booking.plant.species %></h3>
+                  <p><%= received_booking.created_at %></p>
+                </div>
+                <div class="message-body">
+              <!--     <p><strong>I am not sure yet!</strong></p> -->
+                  <p>
+                   Your booking from <%= received_booking.plant.user.first_name %>'s <%= received_booking.plant.species %> is
+                  </p>
+                </div>
+                <div class="message-status">
+                  <p class="status pending"><%= received_booking.status %></p>
+                  <p class="price">€<%= received_booking.total_price %></p>
+                </div>
+              </div>
              <% end %>
         </li>
       </ul>
