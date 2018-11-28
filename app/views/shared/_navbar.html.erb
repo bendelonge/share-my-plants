@@ -1,8 +1,6 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to landing_path, class: "logo" do %>
-    <p>Share My Plants</p>
-  <% end %>
+    <p class= "logo">Share My Plants</p>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -10,8 +8,11 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= link_to "See All Plants", plants_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My Plants", owner_plants_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My Bookings",bookings_path , class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to "My Rentals",bookings_path , class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
