@@ -10,8 +10,8 @@ class PlantsController < ApplicationController
       @plants = Plant.where.not(latitude: nil, longitude: nil)
     end
 
-    if params[:city_location].present?
-      @plants = @plants.near(params[:city_location], 10)
+    if params[:location].present?
+      @plants = @plants.near(params[:location], 50)
     end
 
 
