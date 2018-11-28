@@ -1,26 +1,49 @@
-.grid{
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  height: calc(100vh - 70px);
-  padding: 15px;
+
+.background-container {
+  background: linear-gradient(20deg, #28965A, #ACFCD9);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+  height: calc(100vh - 140px);
 }
 
 
-.plant-description {
-  grid-column: 1 / span 2;
-  grid-row: 1 / span 2;
+.show-card {
+  width: 350px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 3px;
+
+    h1 {
+  text-align: center;
+  padding-bottom: 30px;
+  color: $green;
+  font-size: 25px;
+    }
+   h2 {
+  border-bottom: 1px dotted $gray;
+  text-align: center;
+  font-weight: lighter;
+  color: gray;
+  font-size: 18px;
+  padding-bottom: 15px;
+  }
+
+  h3 {
+  text-align: center;
+  color: gray;
+  font-size: 14px;
+  }
+
+  p{
+  margin-top: 20px;
+  text-align: justify;
+  color: $green;
+  font-size: 12px;
+  }
 }
 
-.owner-description{
-  grid-column: 1 / span 2;
-  grid-row: 3 / span 2;
-}
-
-.booking-form{
-  grid-column: 3 / span 2;
-  grid-row: 2 / span 2;
-}
 
 .plant-summary {
   display: flex;
@@ -32,34 +55,13 @@
   text-align: center;
 }
 
-.plant-main-infos h2 {
-  color: $green;
-}
-
 
 .plant-owner {
   display: flex;
 }
 
-.plant-description {
-}
-
-.plant-description p {
-  margin-top: 20px;
-  font-size: 13px;
-}
-
-.owner-title {
-  border-bottom: 1px dotted $gray;
-  margin-bottom: 15px;
-  margin-top: 15px;
-}
-
-.owner-title h2 {
-  font-size: 20px;
-}
 .owner-picture {
-  width: 150px;
+  width: 80px;
   border-radius: 50%;
 }
 

@@ -1,14 +1,22 @@
 <div class="container">
   <div class="row">
     <% @plants.each do |plant| %>
-    <div class="col-xs-12 col-sm-3">
-      <div class="card" style="background-image: url('<%= cl_image_path plant.main_picture, height: 300, crop: :fill unless plant.main_picture.nil? %>')" >
-        <div class="card-description">
-          <h2><%= plant.species %></h2>
+      <div class="col-xs-12 col-sm-3">
+        <div class="card" style="background-image: url('<%= cl_image_path plant.main_picture, height: 300, crop: :fill unless plant.main_picture.nil? %>')" >
+          <div class="card-description">
+            <h2><%= plant.species %></h2>
+          </div>
+          <%= link_to '', plant_path(plant), class: "card-link" %>
         </div>
-        <%= link_to '', plant_path(plant), class: "card-link" %>
+        <div class = "card-footer">
+            <%= link_to edit_owner_plant_path(plant.id) do %>
+            <i class="fas fa-pencil-alt"></i>
+            <%= link_to owner_plant_path(plant.id), method: :delete, data: { confirm: 'are you sure?' } do%>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
