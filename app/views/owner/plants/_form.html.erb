@@ -1,6 +1,6 @@
 <%= simple_form_for [:owner, @plant] do |f| %>
   <%= f.input :species %>
-  <%= f.input :price_per_day %>
+  <%= f.input :price_per_day, input_html: {value: f.object.price_per_day.fdiv(100)} %>
   <%= f.input :city_location %>
   <%= f.input :description %>
   <%= f.input :main_picture %>

@@ -36,6 +36,8 @@ class Owner::PlantsController < ApplicationController
 private
 
   def plant_params
-     params.require(:plant).permit(:species, :price_per_day, :main_picture, :description, :city_location)
+    params[:plant][:price_per_day] = params[:plant][:price_per_day].to_f * 100
+    params.require(:plant).permit(:species, :price_per_day, :main_picture, :description, :city_location)
   end
+
 end
