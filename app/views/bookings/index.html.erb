@@ -20,8 +20,8 @@
                 </p>
               </div>
               <div class="message-status">
-                <p class="status <%=received_booking.status%>"><%= requested_booking.status %></p>
-                <p class="price">€<%= (received_booking.total_price.to_f)/100  %></p>
+                <p class="status <%=requested_booking.status%>"><%= requested_booking.status %></p>
+                <p class="price">€<%= (requested_booking.total_price.to_f)/100  %></p>
               </div>
             </div>
           <% end %>
