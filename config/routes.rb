@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :owner do
-    resources :plants, only: [ :new, :create ]
+    resources :plants, only: [ :index, :new, :create ]
   end
 end
 
