@@ -20,8 +20,8 @@
                 </p>
               </div>
               <div class="message-status">
-                <p class="status pending"><%= requested_booking.status %></p>
-                <p class="price">€<%= requested_booking.total_price %></p>
+                <p class="status <%=requested_booking.status%>"><%= requested_booking.status %></p>
+                <p class="price">€<%= (requested_booking.total_price.to_f)/100  %></p>
               </div>
             </div>
           <% end %>
@@ -42,14 +42,24 @@
                   <p><%= received_booking.created_at %></p>
                 </div>
                 <div class="message-body">
-              <!--     <p><strong>I am not sure yet!</strong></p> -->
                   <p>
-                   Your booking from <%= received_booking.plant.user.first_name %>'s <%= received_booking.plant.species %> is
+                   Your booking from <%= received_booking.user.first_name %>'s <%= received_booking.plant.species %> is
                   </p>
                 </div>
                 <div class="message-status">
-                  <p class="status pending"><%= received_booking.status %></p>
-                  <p class="price">€<%= received_booking.total_price %></p>
+                  <%if received_booking.status == "pending"%>
+                    <%= link_to accept_booking_path(received_booking), method: :patch do %>
+                      <div class="btn-booking btn-success text-center">Approve</div>
+                    <% end %>
+                    <%= link_to deny_booking_path(received_booking), method: :patch do %>
+                      <div class="btn-booking btn-danger text-center">Deny</div>
+                    <% end %>
+                  <%else %>
+                    <p class='status <%=received_booking.status%>'><%= received_booking.status %></p>
+                  <%end %>
+
+
+                  <p class="price">€<%= (received_booking.total_price.to_f)/100 %></p>
                 </div>
               </div>
              <% end %>
@@ -58,6 +68,7 @@
     </div>
   </div>
 </div>
+
 
 
 

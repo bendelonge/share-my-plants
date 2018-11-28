@@ -19,6 +19,8 @@ gem 'webpacker'
 gem 'cloudinary', '~> 1.9.1'
 gem 'devise'
 gem 'carrierwave', '~> 1.2'
+gem 'geocoder'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
