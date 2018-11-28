@@ -6,8 +6,8 @@ class PlantsController < ApplicationController
 
   def show
     @owner = @plant.user
+    @booking = Booking.new
   end
-
 
   private
   def find_plant

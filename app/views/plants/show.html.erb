@@ -8,7 +8,7 @@
         <div class="plant-main-infos">
           <h2><%=  @plant.species %></h2>
           <h3><%= @plant.city_location %></h3>
-          <h4>$<%= @plant.price_per_day / 100 %> per day</h2>
+          <h4>$<%= (@plant.price_per_day.to_f / 100) %> per day</h2>
         </div>
       </div>
       <p><%= @plant.description %></p>
@@ -33,9 +33,6 @@
 
     <div class="booking-form">
       <%= render 'form' %>
-      <div class="btn btn-warning">
-        <%= link_to 'Book it',  plant_bookings_path(@plant), :method => :post %>
-      </div>
     </div>
 
   </div>
