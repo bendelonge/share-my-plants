@@ -3,7 +3,11 @@ class PlantsController < ApplicationController
   before_action :find_plant, only: [:show]
 
   def index
-    @plants = Plant.where.not(latitude: nil, longitude: nil)
+    if user_signed_in?
+      @plants = Plant.where.not(latitude: nil, longitude: nil, user: current_user.id)
+    else
+      @plants = Plant.where.not(latitude: nil, longitude: nil)
+    end
 
       @markers = @plants.map do |plant|
         {
