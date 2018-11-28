@@ -10,6 +10,7 @@ class PlantsController < ApplicationController
   end
 
   private
+
   def find_plant
     @plant = Plant.find(params[:id])
   end

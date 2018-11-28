@@ -1,0 +1,170 @@
+.background-form-login-sign-up {
+  background: linear-gradient(20deg, #28965A, #ACFCD9);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.container-form-login {
+
+  width: 350px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 3px;
+   h2 {
+  text-align: center;
+  font-weight: lighter;
+  padding-bottom: 30px;
+  color: grey;
+  font-size: 18px;
+  }
+}
+
+.form-inputs-login {
+ border-radius: 30px;
+}
+
+.form-control {
+  border-radius: 20px;
+}
+
+.form-check {
+vertical-align: center;
+  .form-check-label {
+    font-weight: lighter;
+    padding-left: 7px;
+    font-size: 14px;
+    color: grey;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-around;
+  .btn-form-login {
+    background-color: $green;
+    font-weight: lighter;
+    width: 200px;
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 16px;
+    transition: background 0.3s ease;
+  }
+}
+
+.btn-form-login:hover {
+      opacity: 1;
+      background: #3ac162;
+      text-decoration: none;
+      color: white;
+    }
+
+.login-sign-up-link {
+  font-weight: lighter;
+  text-decoration: none;
+  text-align: center;
+  color: lightgrey;
+  font-size: 14px;
+  :hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.form-control-label {
+  font-weight: lighter;
+  font-size: 16px;
+  color: grey;
+}
+
+.placeholder-input {
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+.container-form-sign-up {
+
+  width: 600px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 3px;
+   h2 {
+  text-align: center;
+  font-weight: lighter;
+  padding-bottom: 30px;
+  color: grey;
+  font-size: 18px;
+  }
+}
+
+.form-inputs-sign-up {
+ border-radius: 30px;
+ display: flex;
+ justify-content: space-around;
+}
+
+.form-block {
+  display:inline-block;
+}
+
+
+.form-actions {
+  display: flex;
+  justify-content: space-around;
+
+  .btn-form-sign-up {
+    background-color: $green;
+    font-weight: lighter;
+    width: 200px;
+    border-radius: 20px;
+    margin-top: 30px;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+}
+
+.btn-form-sign-up:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-form-password-reset {
+  background-color: $green;
+  font-weight: lighter;
+  width: 300px;
+  border-radius: 20px;
+  margin-top: 30px;
+  color: white;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.btn-form-password-reset:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+.link-sign-up-forgot-password {
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+<%= simple_form_for [:owner, @plant] do |f| %>
+  <%= f.input :species %>
+  <%= f.input :price_per_day %>
+  <%= f.input :city_location %>
+  <%= f.input :description %>
+  <%= f.input :main_picture %>
+  <%= f.input :main_picture_cache, as: :hidden %>
+  <%= f.button :submit, class: "btn btn-success" %>
+<% end %>
+
