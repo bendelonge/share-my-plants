@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :find_booking, only: [:accept, :deny]
+
   def index
     @requested_bookings = current_user.bookings
     @received_bookings = current_user.received_bookings
@@ -19,4 +21,26 @@ class BookingsController < ApplicationController
     @booking.save
     redirect_to bookings_path
   end
+
+  def accept
+    puts "IL L A ACCEPTEEEEEEE"
+    @booking.status = "approved"
+    @booking.save!
+    redirect_to bookings_path
+
+  end
+
+  def deny
+    @booking.status = "denied"
+    @booking.save!
+    redirect_to bookings_path
+  end
+
+
+  private
+
+  def find_booking
+    @booking = Booking.find(params[:id])
+  end
+
 end

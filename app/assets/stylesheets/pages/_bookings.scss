@@ -51,12 +51,27 @@
   font-size: 14px;
   font-weight: bold;
 }
-.status.accepted {
+.status.approved {
   color: #04A366;
 }
-.status.declined {
+.status.denied {
   color: red;
 }
 .status.pending {
   color: lightgrey;
+}
+
+.btn-booking {
+  font-size: 10px;
+  padding: 10px 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  border-radius: 4px;
+}
+
+.price {
+  font-size: 12px;
+  padding-left: 20px;
+
 }
