@@ -1,68 +1,132 @@
+.plants-index {
+  display: flex;
+  background-color: rgb(250,250,250);
+}
+
 
 .search-bar {
   margin: 30px;
   display: flex;
   justify-content: space-around;
-
 }
-
 
 .container-plants {
   display: flex;
   padding-left: 10px;
 }
 
+.card-container {
+  width: 230px;
+  height: 300px;
+  background-color: white;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  position: relative;
+  box-shadow: 2px 1px 1px $light-gray;
+}
+
 .card {
-  width: 250px;
-  height: 220px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  width: 200px;
+  height: 200px;
   background-size: cover !important;
   background-position: center;
   color: white;
-  position: relative;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  border-radius: 4px;
-
-}
-
-.card-user {
   position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
-  border-radius: 50%;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 40px;
+  margin: auto auto;
+  border-radius: 2px;
 }
-.card-category {
+
+.container-description {
+  width: 200px;
   position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
+  right: 0;
+  left: 0;
+  top: 200px;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
 }
+
 .card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
   font-size: 14px;
-  opacity: 0.7;
+  color: black;
+  margin-bottom: 0px;
+}
+.card-city {
+  font-size: 14px;
+  color: black;
   font-weight: lighter;
 }
+
 .card-link {
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   width: 100%;
-  z-index: 2;
   background: black;
   opacity: 0;
 }
 .card-link:hover {
-  opacity: 0.1;
+  opacity: 0.2;
 }
+
+.btn-rent-plant {
+  background-color: $green;
+  font-weight: lighter;
+  width: 120px;
+  height: 30px;
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  right: 0;
+  left: 40px;
+  top: 185px;
+  bottom: 0;
+  text-align: center;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.btn-rent-plant:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+.card-price-per-day {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+}
+
+.map-div {
+  margin-left: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
