@@ -1,6 +1,6 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-    <p class= "logo">Share My Plants</p>
+  <%= link_to image_tag('logo-syp.png', class: "navbar-wagon-brand logo"), plants_path %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -8,11 +8,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "See All Plants", plants_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My Plants", owner_plants_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My Bookings",bookings_path , class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Rent a plant", plants_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-      <%= link_to "My Rentals",bookings_path , class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -20,13 +17,28 @@
           <%= cl_image_tag current_user.profile_picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
+              <%= link_to owner_plants_path do %>
+                <i class="fas fa-leaf"></i> Plants
+              <% end %>
+            </li>
+            <li>
+              <%= link_to bookings_path do %>
+                <i class="fas fa-list-ul"></i> Bookings
+              <% end %>
+            </li>
+            <li>
+              <%= link_to requests_path do%>
+                <i class="far fa-calendar-check"></i> Requests
+              <% end %>
+            </li>
+            <li>
               <%= link_to edit_user_registration_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: " Edit Profile") %>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>
@@ -43,9 +55,31 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+            <li>
+              <%= link_to owner_plants_path do %>
+                <i class="fas fa-leaf"></i> Plants
+              <% end %>
+            </li>
+            <li>
+              <%= link_to bookings_path do %>
+                <i class="fas fa-list-ul"></i> Bookings
+              <% end %>
+            </li>
+            <li>
+              <%= link_to requests_path do%>
+                <i class="far fa-calendar-check"></i> Requests
+              <% end %>
+            </li>
+            <li>
+              <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: " Edit Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
       </ul>
     </div>
   </div>

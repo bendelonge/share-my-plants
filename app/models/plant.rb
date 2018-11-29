@@ -1,6 +1,6 @@
 class Plant < ApplicationRecord
   geocoded_by :full_address
-  after_validation :geocode, if: :will_save_change_to_address?
+  after_validation :geocode, if: :location_changed?
 
   mount_uploader :main_picture, PhotoUploader
   belongs_to :user
@@ -13,4 +13,11 @@ class Plant < ApplicationRecord
   def full_address
     return [self.address, self.city_location, self.country].compact.join(', ')
   end
+
+  def location_changed?
+    address_changed? || city_location_changed?  || country_changed?
+    #will_save_change_to_city_location? || will_save_change_to_country?
+  end
+
+
 end

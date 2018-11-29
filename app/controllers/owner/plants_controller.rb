@@ -40,7 +40,7 @@ private
 
   def plant_params
     params[:plant][:price_per_day] = params[:plant][:price_per_day].to_f * 100
-    params.require(:plant).permit(:species, :price_per_day, :main_picture, :description, :address,:country, :city_location)
+    params.require(:plant).permit(:species, :price_per_day, :main_picture, :description, :city_location, :country, :address)
   end
 
 end
