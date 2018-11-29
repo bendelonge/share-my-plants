@@ -1,5 +1,5 @@
 <%= simple_form_for [@plant, @booking] do |f| %>
   <%= f.input :starting_date, as: :string, input_html: {class: "datepicker"}, label: 'From', value: 'now()' %>
   <%= f.input :ending_date, as: :string, input_html: {class: "datepicker"}, label: 'To' %>
-  <%= f.submit "book this plant", class: "btn-form-sign-up text-center" %>
+  <%= f.submit "book this plant", class: "btn-book-plant" %>
 <% end %>

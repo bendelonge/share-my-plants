@@ -14,7 +14,12 @@ if (mapElement) { // only build a map if there's a div#map to inject into
   const markers = JSON.parse(mapElement.dataset.markers);
 
   markers.forEach((marker) => {
-    new mapboxgl.Marker()
+    const el = document.createElement('div');
+    el.className = 'marker';
+    el.style.backgroundImage = 'url(https://image.flaticon.com/icons/svg/892/892926.svg)';
+    el.style.width = '30px';
+    el.style.height = '30px';
+    new mapboxgl.Marker(el)
       .setLngLat([marker.lng, marker.lat])
       .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
       .setHTML(marker.infoWindow.content))
@@ -34,3 +39,4 @@ if (mapElement) { // only build a map if there's a div#map to inject into
     map.fitBounds(bounds, { duration: 0, padding: 75 })
   }
 }
+
