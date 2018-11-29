@@ -110,10 +110,23 @@
   margin-left: 20px;
 }
 
+.pen {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+}
+.trash {
+  // position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+}
 
-
-
-
+.owner-card-description {
+  font-size: 14px;
+  color: blue;
+}
 
 
 
