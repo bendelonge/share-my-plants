@@ -64,4 +64,18 @@
   transition-property: transform;
 }
 
+  }
 
+
+.has-red-bg {
+  background-color: red;
+}
+
+.flexbox {
+  display: flex;
+
+  &-center {
+    justify-content: center;
+    align-items: center;
+  }
+}
