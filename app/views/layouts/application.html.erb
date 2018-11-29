@@ -16,7 +16,9 @@
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+    <% unless current_page?(landing_path)%>
     <%= render 'shared/footer' %>
+    <% end %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_pack_tag 'map' %>
