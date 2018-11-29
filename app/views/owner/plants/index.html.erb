@@ -1,27 +1,33 @@
-gi<div class="container">
+<div class="container-plants">
   <div class="row">
     <% @plants.each do |plant| %>
-      <div class="col-xs-12 col-sm-3">
-        <div class="card" style="background-image: url('<%= cl_image_path plant.main_picture, height: 300, crop: :fill unless plant.main_picture.nil? %>')" >
-          <div class="card-description">
-            <h2><%= plant.species %></h2>
+      <div class="col-xs-6 col-sm-5 col-md-3">
+        <div class="card-container">
+        <div class="card" style="background-image: linear-gradient(rgba(0, 101, 168, 0.11), rgba(0, 36, 61, 0.21)), url('<%= cl_image_path plant.main_picture, height: 300, crop: :fill unless plant.main_picture.nil? %>')" >
+          <div class="container-description">
+            <div class="container-species-city">
+            <h2 class="card-description"><%= plant.species %></h2>
+            <p class="card-city"><%= plant.city_location %></p>
           </div>
-        </div>
-        <div class = "card-footer">
+         <i class="fas fa-align-justify page" title=" <%= plant.description %>"></i>
+            <h3 class="card-price-per-day"> <%= (plant.price_per_day) / 100 %>€/j</h3>
+          </div>
             <%= link_to edit_owner_plant_path(plant.id) do %>
-            <i class="fas fa-pencil-alt"></i>
+            <i class="fas fa-pencil-alt pen"></i>
             <%= link_to owner_plant_path(plant.id), method: :delete, data: { confirm: 'are you sure?' } do%>
-            <i class="fas fa-trash-alt"></i>
+            <i class="fas fa-trash-alt trash"></i>
             <% end %>
           <% end %>
-        </div>
       </div>
+    </div>
+  </div>
     <% end %>
         <div >
-          <%= link_to "Rent out a new plant !!", new_owner_plant_path, class: 'btn btn-success'%>
+          <%= link_to "+", new_owner_plant_path, class: 'rent-button'%>
         </div>
-  </div>
 </div>
+</div>
+
 
 
 

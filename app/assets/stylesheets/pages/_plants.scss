@@ -39,6 +39,23 @@
   bottom: 40px;
   margin: auto auto;
   border-radius: 2px;
+    i{
+      i:after {
+        content:attr(title);
+        display:none;
+        position:absolute;
+        left:50%;
+        bottom:100%;
+        margin-bottom:5px;
+        min-width:200px;
+        background:orange;
+        padding:10px;
+        color:#000;
+      }
+      i:hover:after {
+        display:block;
+      }
+    }
 }
 
 .container-description {
@@ -111,14 +128,39 @@
   margin-left: 20px;
 }
 
+.pen {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+}
+.trash {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+}
 
+.owner-card-description {
+  font-size: 14px;
+  color: blue;
+}
 
+.page{
+  color: black;
+  margin-top: 30px;
+}
 
+.rent-button{
+  background-color: lightgrey;
+  color: black;
+  border: 1px solid black;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 150px;
 
-
-
-
-
+  opacity: 0.5;
+}
 
 
 
