@@ -1,13 +1,16 @@
-.container-bookings {
-  // margin-right: 15vh;
-  // margin-left: 15vh
-  margin: 15vh
+
+.title {
+  color: $green;
+  font-size: 25px;
 }
 
+.container-lists {
+  margin-right: 200px;
+  margin-left: 200px;
+}
 .message {
   display: flex;
-  align-items: center;
-  padding: 20px;
+  justify-content: space-around;
   border-bottom: 1px solid rgba(220,224,244,0.4);
 }
 .message:last-child {
@@ -18,7 +21,8 @@
 }
 .message-name {
   padding-left: 10px;
-  min-width: 100px;
+  align-items: center;
+
 }
 .message-name h3 {
   font-size: 13px;
@@ -30,10 +34,11 @@
   font-weight: lighter;
   opacity: 0.6;
   margin-top: 5px;
+  color: $green;
 }
 .message-body {
   padding-left: 10px;
-  font-size: 13px;
+  font-size: 15px;
   color: rgba(0,0,0,0.7);
 }
 .message-body {
@@ -48,9 +53,10 @@
   margin: 6px 0;
 }
 .message-status {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: bold;
 }
+
 .status.approved {
   color: #04A366;
 }
@@ -70,8 +76,7 @@
   border-radius: 4px;
 }
 
-.price {
-  font-size: 12px;
-  padding-left: 20px;
-
+.price p {
+  font-size: 15px;
+  color: black;
 }

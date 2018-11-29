@@ -1,32 +1,36 @@
-<div class="container-bookings">
-   <h3>renter</h3>
-
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-
-      <%@requested_bookings.each do |requested_booking|  %>
-        <div class="message">
-        <%= cl_image_tag requested_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
-          <div class="message-name">
-            <h3><%= requested_booking.plant.species %></h3>
-            <p><%= requested_booking.created_at %></p>
-          </div>
-          <div class="message-body">
-            <p>
-             Your booking from <%= requested_booking.plant.user.first_name %>'s <%= requested_booking.plant.species %> is
-            </p>
-          </div>
-          <div class="message-status">
-            <p class="status <%=requested_booking.status%>"><%= requested_booking.status %></p>
-            <p class="price">€<%= (requested_booking.total_price.to_f)/100  %></p>
-          </div>
+<ul class="list-group list-group-flush">
+  <div class="container-lists">
+    <div class="title text-center">
+      <br><p>Check the list below to see your bookings status </p><br>
+    </div>
+    <%@requested_bookings.each do |requested_booking|  %>
+      <li class="list-group-item">
+        <div class="row" style="display: flex;">
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <div class="text-center">
+              <%= cl_image_tag requested_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
+                <div class="message-name">
+                  <p><%= requested_booking.plant.species %></p>
+                  <div class="price">
+                    <p><strong>€<%= (requested_booking.total_price.to_f)/100 %></strong></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 flexbox flexbox-center">
+              <div class="message-body">
+                <p>
+                 Your booking from <%= requested_booking.plant.user.first_name %>'s <%= requested_booking.plant.species %> is
+                </p>
+              </div>
+            </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 flexbox flexbox-center">
+                <div class="message-status">
+                  <p class="status <%=requested_booking.status%>"><%= requested_booking.status %></p>
+                </div>
+              </div>
         </div>
-      <% end %>
-    </li>
-  </ul>
-</div>
-
-
-
-
-
+      </li>
+    <% end %>
+  </div>
+</ul>

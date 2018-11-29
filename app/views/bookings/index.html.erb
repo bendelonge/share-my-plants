@@ -1,41 +1,84 @@
-<div class="container-bookings">
-  <h3>Owner </h3>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-        <%@received_bookings.each do |received_booking|  %>
-          <div class="message">
-            <%= cl_image_tag received_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
-              <div class="message-name">
-              <h3><%= received_booking.plant.species %></h3>
-              <p><%= received_booking.created_at %></p>
+    <div class="container-lists">
+      <div class="title text-center">
+        <br><p>Your garden have success!</p>
+        <p>Please take some times to respond the requests in stand-by</p><br>
+      </div>
+      <%@received_bookings.each do |received_booking|  %>
+        <%if received_booking.status == "pending"%>
+          <li class="list-group-item">
+            <div class="row" style="display: flex;">
+              <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="text-center">
+                  <%= cl_image_tag received_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
+                  <div class="message-name">
+                    <p><%= received_booking.plant.species %></p>
+                    <div class="price">
+                      <p><strong>€<%= (received_booking.total_price.to_f)/100 %></strong></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 flexbox flexbox-center">
+                <div class="message-body">
+                  <p><strong><%= received_booking.user.first_name%></strong> as requested to rent your <%= received_booking.plant.species%> from <%=received_booking.starting_date%> to <%=received_booking.ending_date%>.
+                  </p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 flexbox flexbox-center">
+                <div class="message-status text-center">
+                  <%= link_to accept_booking_path(received_booking), method: :patch do %>
+                    <div class="btn-booking btn-success text-center">Approve</div>
+                  <% end %>
+                  <%= link_to deny_booking_path(received_booking), method: :patch do %>
+                    <div class="btn-booking btn-danger text-center">Deny</div>
+                  <% end %>
+                </div>
+              </div>
             </div>
-            <div class="message-body">
-              <p>
-               Your booking from <%= received_booking.user.first_name %>'s <%= received_booking.plant.species %> is
-              </p>
-            </div>
-            <div class="message-status">
-              <%if received_booking.status == "pending"%>
-                <%= link_to accept_booking_path(received_booking), method: :patch do %>
-                  <div class="btn-booking btn-success text-center">Approve</div>
-                <% end %>
-                <%= link_to deny_booking_path(received_booking), method: :patch do %>
-                  <div class="btn-booking btn-danger text-center">Deny</div>
-                <% end %>
-              <%else %>
-                <p class='status <%=received_booking.status%>'><%= received_booking.status %></p>
-              <%end %>
-
-
-              <p class="price">€<%= (received_booking.total_price.to_f)/100 %></p>
-            </div>
-          </div>
-         <% end %>
-    </li>
+          </li>
+        <%end %>
+      <% end %>
+    </div>
   </ul>
-</div>
-
-
+  <ul class="list-group list-group-flush">
+    <div class="container-lists">
+      <div class="title text-center">
+        <br><p>Need to see your requestes history?</p>
+        <p>Check the list below!</p><br>
+      </div>
+      <%@received_bookings.each do |received_booking|  %>
+        <%if received_booking.status != "pending"%>
+          <li class="list-group-item">
+            <div class="row" style="display: flex;">
+              <div class="col-xs-12 col-sm-4 col-md-4">
+              <!-- <div class="col-xs-12 col-sm-4 col-md-4 has-red-bg"> -->
+                <div class="text-center">
+                  <%= cl_image_tag received_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
+                  <div class="message-name">
+                    <p><%= received_booking.plant.species %></p>
+                    <div class="price">
+                      <p><strong>€<%= (received_booking.total_price.to_f)/100 %></strong></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 flexbox flexbox-center">
+                <div class="message-body">
+                 <p><strong><%= received_booking.user.first_name%></strong> as requested to rent your <%= received_booking.plant.species%> from <%=received_booking.starting_date%> to <%=received_booking.ending_date%>.
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 flexbox flexbox-center">
+                <div class="message-status text-center">
+                  <p class='status <%=received_booking.status%>'><%= received_booking.status %></p>
+                </div>
+              </div>
+            </div>
+          </li>
+        <%end%>
+      <%end%>
+    </div>
+  </ul>
 
 
 
