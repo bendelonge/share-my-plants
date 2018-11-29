@@ -1,4 +1,4 @@
-<div class="container">
+gi<div class="container">
   <div class="row">
     <% @plants.each do |plant| %>
       <div class="col-xs-12 col-sm-3">
@@ -6,14 +6,14 @@
           <div class="card-description">
             <h2><%= plant.species %></h2>
           </div>
-            <div class = "card-footer">
-                <%= link_to edit_owner_plant_path(plant.id) do %>
-                <i class="fas fa-pencil-alt"></i>
-                <%= link_to owner_plant_path(plant.id), method: :delete, data: { confirm: 'are you sure?' } do%>
-                <i class="fas fa-trash-alt"></i>
-                <% end %>
-              <% end %>
-            </div>
+        </div>
+        <div class = "card-footer">
+            <%= link_to edit_owner_plant_path(plant.id) do %>
+            <i class="fas fa-pencil-alt"></i>
+            <%= link_to owner_plant_path(plant.id), method: :delete, data: { confirm: 'are you sure?' } do%>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>
