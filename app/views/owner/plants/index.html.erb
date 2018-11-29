@@ -1,4 +1,4 @@
-<div class="container">
+gi<div class="container">
   <div class="row">
     <% @plants.each do |plant| %>
       <div class="col-xs-12 col-sm-3">
@@ -17,11 +17,12 @@
         </div>
       </div>
     <% end %>
+        <div >
+          <%= link_to "Rent out a new plant !!", new_owner_plant_path, class: 'btn btn-success'%>
+        </div>
   </div>
 </div>
 
-<div >
-  <%= link_to "Add your plant !!", new_owner_plant_path, class: 'btn btn-warning'%>
-</div>
+
 
 
