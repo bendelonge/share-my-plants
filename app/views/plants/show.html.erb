@@ -1,44 +1,37 @@
 <div class="background-container">
-          <div class="show-card">
-            <div class="plant-summary">
-              <div class="card" style="background-image: url('<%= cl_image_path @plant.main_picture, height: 300, crop: :fill %>')" >
-              </div>
-              <div class="plant-main-infos">
-                <h1><%=  @plant.species %></h1>
-                <h3><%= @plant.full_address %></h3>
-                <h3><%= (@plant.price_per_day.to_f / 100) %> € per day</h2>
-              </div>
-            </div>
-            <p><%= @plant.description %></p>
-          </div>
-
-          <div class="show-card">
-            <h2>Book this plant ?</h2>
-            <%= render 'form' %>
-          </div>
-
-          <div class="show-card">
-              <div class="owner-title">
-                <h2>Contact the owner of this plant</h2>
-              </div>
-              <div class="plant-owner">
-                  <div class="owner-picture" style="background-image: url('<%= cl_image_path @owner.profile_picture, height: 80, :crop => :thumb, :gravity => :face %>')" >
-                  </div>
-                <div class="owner-details">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><%= @owner.first_name%> <%= @owner.last_name %></li>
-                    <li class="list-group-item"><i class="fas fa-phone"></i> <%= @owner.phone_number %></li>
-                    <li class="list-group-item"><i class="fas fa-at"></i> <%= @owner.email %></li>
-                  </ul>
-                </div>
-              </div>
-          </div>
-
-
-
-
-
+  <div class="show-card">
+    <div class="plant-summary">
+      <div class="card" style="background-image: url('<%= cl_image_path @plant.main_picture, height: 300, crop: :fill %>')">
+      <div class="plant-main-infos">
+        <h1><%=  @plant.species %></h1>
+        <h3><%= @plant.full_address %></h3>
+        <h3><%= (@plant.price_per_day.to_f / 100) %> € per day</h3>
+      </div>
+      <div>
+        <p><%= @plant.description %></p>
+      </div>
+    </div>
+    </div>
+      <div class="show-card">
+        <h2>Book this plant ?</h2>
+        <%= render 'form' %>
+      </div>
+      <div class="show-card">
+        <div class="owner-title">
+          <h2>Contact the owner of this plant</h2>
+        </div>
+      </div>
+      <div class="plant-owner">
+        <div class="owner-picture" style="background-image: url('<%= cl_image_path @owner.profile_picture, height: 80, :crop => :thumb, :gravity => :face %>')" >
+        </div>
+        <div class="owner-details">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= @owner.first_name%> <%= @owner.last_name %></li>
+            <li class="list-group-item"><i class="fas fa-phone"></i> <%= @owner.phone_number %></li>
+            <li class="list-group-item"><i class="fas fa-at"></i> <%= @owner.email %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-
-
 
