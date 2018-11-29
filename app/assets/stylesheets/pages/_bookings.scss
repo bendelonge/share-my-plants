@@ -5,8 +5,9 @@
 }
 
 .container-lists {
-  margin-right: 200px;
-  margin-left: 200px;
+width: 700px;
+margin: auto;
+
 }
 .message {
   display: flex;
@@ -20,7 +21,6 @@
   flex-grow: 1;
 }
 .message-name {
-  padding-left: 10px;
   align-items: center;
 
 }
