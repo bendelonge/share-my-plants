@@ -1,11 +1,23 @@
+<div class="background-form-login-sign-up">
+  <div class="container-form-sign-up">
+    <h2>Fill in the following form !</h2>
 <%= simple_form_for [:owner, @plant] do |f| %>
-  <%= f.input :species %>
+<div class="form-inputs-sign-up">
+  <div class="form-block">
+  <%= f.input :species, required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "species" } %>
   <%= f.input :price_per_day, label: 'price per day (€)', placeholder: '0.00', input_html: {value: (f.object.price_per_day.present?) ? f.object.price_per_day.fdiv(100) : '', type: 'string' } %>
   <%= f.input :address %>
   <%= f.input :city_location %>
   <%= f.input :description %>
   <%= f.input :main_picture %>
   <%= f.input :main_picture_cache, as: :hidden %>
-  <%= f.button :submit, class: "btn btn-success" %>
+</div>
+</div>
+<div class="form-actions">
+  <p><%= f.button :submit, class: "btn-form-sign-up" %></p>
+  </div>
 <% end %>
-
+</div>
+</div>

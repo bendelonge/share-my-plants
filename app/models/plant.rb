@@ -9,7 +9,7 @@ class Plant < ApplicationRecord
   validates :species, presence: true
   validates :city_location, presence: true
   validates :price_per_day, presence: true
-
+  validates :address, presence: true
   def full_address
     return [self.address, self.city_location, self.country].compact.join(', ')
   end
