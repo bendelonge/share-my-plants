@@ -11,25 +11,25 @@
       %>
     <% end %>
 
-<div class="container-plants">
-  <div class="row">
-    <% @plants.each do |plant| %>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card" style="background-image: url('<%= cl_image_path plant.main_picture, height: 300, crop: :fill unless plant.main_picture.nil? %>')" >
-        <div class="card-description">
-          <h2><%= plant.species %></h2>
-          <p><%= plant.city_location %></p>
+  <div class="container-plants">
+    <div class="row">
+      <% @plants.each do |plant| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card" style="background-image: url('<%= cl_image_path plant.main_picture, height: 300, crop: :fill unless plant.main_picture.nil? %>')" >
+          <div class="card-description">
+            <h2><%= plant.species %></h2>
+            <p><%= plant.city_location %></p>
+          </div>
+          <%= link_to '', plant_path(plant), class: "card-link" %>
         </div>
-        <%= link_to '', plant_path(plant), class: "card-link" %>
       </div>
+      <% end %>
     </div>
-    <% end %>
+    <div
+      id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
   </div>
-  <div
-    id="map"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
-</div>
 
 
