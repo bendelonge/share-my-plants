@@ -1,8 +1,11 @@
-
-.banner{
-  padding-top: 0;
-  background-color: $green;
+.banner {
+  color: white;
   text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
   justify-content: center;
     h1 {
   font-weight: bolder;
@@ -13,27 +16,64 @@
   margin: 0;
     }
    }
+
 .button-content{
   margin-bottom: 50px;
 }
-  .home-slogan {
-  background-color: $gray;
-  font-weight: 400px;
-  font-size: 40px;
-  color: lightgrey;
+.banner h5 {
+  font-size: 60px;
+  // font-weight: ;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom:20px;
+  letter-spacing: 7px;
+}
+
+.banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
   font-style: italic;
-  height:150px;
-  text-align: center;
-  justify-content: center;
+  margin-bottom:100px;
+  letter-spacing: 1px;
+}
+
+.btn-form-banner {
+  background-color: $green;
+  font-weight: bold;
+  height: 50px;
+  width: 350px;
+  border-radius: 30px;
+  color: white;
+  display: block;
+  margin: 0px auto;
+  font-size:30px;
+  text-align:center;
+  padding-top: 3px;
+  letter-spacing: 2px;
+}
+
+.btn-form-banner:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  transform: perspective(1px) translateZ(0);
+  transition-property: transform;
+}
+
+
+.has-red-bg {
+  background-color: red;
+}
+
+.flexbox {
+  display: flex;
+
+  &-center {
+    justify-content: center;
+    align-items: center;
   }
-
-  .play-button{
-    font-size: 50px;
-    color: white;
-
-    width: 250px;
-    height: 150px;
-    border-radius: 5px;
-    background-color: $gray;
-
-  }
+}

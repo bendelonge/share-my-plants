@@ -1,5 +1,5 @@
 .background-form-login-sign-up {
-  background: linear-gradient(20deg, #28965A, #ACFCD9);
+  background-color: rgb(250,250,250);
   padding-top: 30px;
   padding-bottom: 30px;
   display: flex;
@@ -7,7 +7,6 @@
 }
 
 .container-form-login {
-
   width: 350px;
   background-color: white;
   padding: 20px;
@@ -86,7 +85,6 @@ vertical-align: center;
 }
 
 .container-form-sign-up {
-
   width: 600px;
   background-color: white;
   padding: 20px;
@@ -114,7 +112,6 @@ vertical-align: center;
 .form-actions {
   display: flex;
   justify-content: space-around;
-
   .btn-form-sign-up {
     background-color: $green;
     font-weight: lighter;
