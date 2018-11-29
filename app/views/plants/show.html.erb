@@ -1,44 +1,45 @@
-<div class="background-container">
-          <div class="show-card">
-            <div class="plant-summary">
-              <div class="card" style="background-image: url('<%= cl_image_path @plant.main_picture, height: 300, crop: :fill %>')" >
-              </div>
-              <div class="plant-main-infos">
-                <h1><%=  @plant.species %></h1>
-                <h3><%= @plant.full_address %></h3>
-                <h3><%= (@plant.price_per_day.to_f / 100) %> € per day</h2>
-              </div>
-            </div>
-            <p><%= @plant.description %></p>
+<div class="plant-show">
+  <div class="plant-details">
+        <div class="plant-main-infos">
+            <h1><%=  @plant.species %></h1>
+            <h3><%= @plant.full_address %></h3>
+            <h3 class="card-price-per-day"> <%= (@plant.price_per_day) / 100 %>€/day</h3>
+        </div>
+        <p><%= @plant.description %></p>
+        <div class="plant-owner">
+          <div class="owner-picture" style="background-image: url('<%= cl_image_path @owner.profile_picture, height: 80, :crop => :thumb, :gravity => :face %>')" >
           </div>
+          <div class="owner-details">
 
-          <div class="show-card">
-            <h2>Book this plant ?</h2>
-            <%= render 'form' %>
+            <ul>
+              <li><%= @owner.first_name%> <%= @owner.last_name %></li>
+              <li><i class="fas fa-phone"></i> <%= @owner.phone_number %></li>
+              <li><i class="fas fa-at"></i> <%= @owner.email %></li>
+            </ul>
           </div>
-
-          <div class="show-card">
-              <div class="owner-title">
-                <h2>Contact the owner of this plant</h2>
-              </div>
-              <div class="plant-owner">
-                  <div class="owner-picture" style="background-image: url('<%= cl_image_path @owner.profile_picture, height: 80, :crop => :thumb, :gravity => :face %>')" >
-                  </div>
-                <div class="owner-details">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><%= @owner.first_name%> <%= @owner.last_name %></li>
-                    <li class="list-group-item"><i class="fas fa-phone"></i> <%= @owner.phone_number %></li>
-                    <li class="list-group-item"><i class="fas fa-at"></i> <%= @owner.email %></li>
-                  </ul>
-                </div>
-              </div>
-          </div>
-
-
-
-
-
+        </div>
   </div>
+  <div class="plant-picture" style="background-image: url('<%= cl_image_path @plant.main_picture, crop: :fill %>')">
+    <div class="booking-card">
+      <h2>Book this plant ?</h2>
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

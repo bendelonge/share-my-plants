@@ -1,25 +1,30 @@
 
-.background-container {
-  background: linear-gradient(20deg, #28965A, #ACFCD9);
-  padding-top: 30px;
-  padding-bottom: 30px;
-  display: flex;
-  justify-content: space-around;
-  height: calc(100vh - 140px);
+.plant-show {
+  display:flex;
+  justify-content: space-between;
 }
 
-
-.show-card {
-  width: 350px;
-  background-color: white;
+.plant-picture {
   padding: 20px;
-  border-radius: 3px;
+  margin: 20px;
+  height: calc(100vh - 160px);
+  width: 1000px;
+  background: cover;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: relative;
+}
 
+.plant-details {
+  width: 300px;
+  padding: 20px;
+  margin: 20px;
     h1 {
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
   color: $green;
-  font-size: 25px;
+  font-size: 35px;
+  font-family: $body-font;
     }
    h2 {
   border-bottom: 1px dotted $gray;
@@ -43,6 +48,77 @@
   font-size: 12px;
   }
 }
+
+.booking-card {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 3px;
+  justify-content: center;
+
+   h2 {
+  border-bottom: 1px dotted $gray;
+  text-align: center;
+  font-weight: lighter;
+  color: gray;
+  font-size: 18px;
+  padding-bottom: 15px;
+  margin: 10px;
+  }
+}
+
+.btn-book-plant {
+  background-color: $green;
+  font-weight: lighter;
+  width: 260px;
+  height: 40px;
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.btn-book-plant:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.background-container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+  height: calc(100vh - 140px);
+}
+
+
+.plant-img {
+  width: 200px;
+  height: 200px;
+}
+
+
 
 
 .plant-summary {
