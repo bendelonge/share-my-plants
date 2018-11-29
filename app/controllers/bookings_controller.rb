@@ -2,10 +2,8 @@ class BookingsController < ApplicationController
   before_action :find_booking, only: [:accept, :deny]
 
   def index
-    @requested_bookings = current_user.bookings
     @received_bookings = current_user.received_bookings
   end
-
 
   def new
     @booking = Booking.new

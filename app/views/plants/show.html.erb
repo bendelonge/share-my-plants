@@ -5,8 +5,8 @@
               </div>
               <div class="plant-main-infos">
                 <h1><%=  @plant.species %></h1>
-                <h3><%= @plant.city_location %></h3>
-                <h3>$<%= (@plant.price_per_day.to_f / 100) %> per day</h2>
+                <h3><%= @plant.full_address %></h3>
+                <h3><%= (@plant.price_per_day.to_f / 100) %> € per day</h2>
               </div>
             </div>
             <p><%= @plant.description %></p>

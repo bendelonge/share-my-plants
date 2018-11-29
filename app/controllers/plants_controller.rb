@@ -1,8 +1,19 @@
 class PlantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :find_plant, only: [:show]
 
   def index
-    @plants = Plant.where.not(latitude: nil, longitude: nil)
+
+    if user_signed_in?
+      @plants = Plant.where.not(latitude: nil, longitude: nil, user: current_user.id)
+    else
+      @plants = Plant.where.not(latitude: nil, longitude: nil)
+    end
+
+    if params[:location].present?
+      @plants = @plants.near(params[:location], 50)
+    end
+
 
       @markers = @plants.map do |plant|
         {
@@ -24,3 +35,6 @@ class PlantsController < ApplicationController
     @plant = Plant.find(params[:id])
   end
 end
+
+
+# @flats = @flats.near(params[:city], 10)

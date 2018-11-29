@@ -24,7 +24,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
   if (markers.length === 0) {
     map.setZoom(1);
   } else if (markers.length === 1) {
-    map.setZoom(14);
+    map.setZoom(12);
     map.setCenter([markers[0].lng, markers[0].lat]);
   } else {
     const bounds = new mapboxgl.LngLatBounds();
