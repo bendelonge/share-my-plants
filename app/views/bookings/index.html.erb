@@ -1,31 +1,37 @@
   <ul class="list-group list-group-flush">
     <div class="container-lists">
       <div class="title text-center">
+        <% if @received_bookings.empty? %>
+        <br><p>You don't have any requests yet!</p>
+        <% else %>
         <br><p>Your garden have success!</p>
-        <p>Please take some times to respond the requests in stand-by</p><br>
+        <p>Please take some times to check the pending requests</p><br>
       </div>
       <%@received_bookings.each do |received_booking|  %>
         <%if received_booking.status == "pending"%>
           <li class="list-group-item">
             <div class="row" style="display: flex;">
-              <div class="col-xs-12 col-sm-4 col-md-4">
+              <div class="col-xs-12 col-sm-2 col-md-2">
                 <div class="text-center">
                   <%= cl_image_tag received_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
-                  <div class="message-name">
-                    <p><%= received_booking.plant.species %></p>
-                    <div class="price">
-                      <p><strong>€<%= (received_booking.total_price.to_f)/100 %></strong></p>
-                    </div>
-                  </div>
+
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-4 col-md-4 flexbox flexbox-center">
+              <div class="col-xs-12 col-sm-7 col-md-7 flexbox flexbox-center">
                 <div class="message-body">
-                  <p><strong><%= received_booking.user.first_name%></strong> as requested to rent your <%= received_booking.plant.species%> from <%=received_booking.starting_date%> to <%=received_booking.ending_date%>.
+                  <div class="message-name">
+                    <p>Request for your <%= received_booking.plant.species %></p>
+                  </div>
+                  <p><strong><%= received_booking.user.first_name%></strong> as requested to rent your <%= received_booking.plant.species%> from <%=received_booking.starting_date.strftime('%A %d %B')%> to <%=received_booking.ending_date.strftime('%A %d %B')%>.
                   </p>
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-4 col-md-4 flexbox flexbox-center">
+              <div class="col-xs-12 col-sm-1 col-md-1 flexbox flexbox-center">
+                <div class="price">
+                      <p><strong>€<%= (received_booking.total_price.to_f)/100 %></strong></p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-2 col-md-2 flexbox flexbox-center">
                 <div class="message-status text-center">
                   <%= link_to accept_booking_path(received_booking), method: :patch do %>
                     <div class="btn-booking btn-success text-center">Approve</div>
@@ -35,6 +41,7 @@
                   <% end %>
                 </div>
               </div>
+
             </div>
           </li>
         <%end %>
@@ -51,24 +58,26 @@
         <%if received_booking.status != "pending"%>
           <li class="list-group-item">
             <div class="row" style="display: flex;">
-              <div class="col-xs-12 col-sm-4 col-md-4">
+              <div class="col-xs-12 col-sm-2 col-md-2">
               <!-- <div class="col-xs-12 col-sm-4 col-md-4 has-red-bg"> -->
                 <div class="text-center">
                   <%= cl_image_tag received_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
-                  <div class="message-name">
-                    <p><%= received_booking.plant.species %></p>
-                    <div class="price">
-                      <p><strong>€<%= (received_booking.total_price.to_f)/100 %></strong></p>
-                    </div>
-                  </div>
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-4 col-md-4 flexbox flexbox-center">
+              <div class="col-xs-12 col-sm-7 col-md-7 flexbox flexbox-center">
                 <div class="message-body">
-                 <p><strong><%= received_booking.user.first_name%></strong> as requested to rent your <%= received_booking.plant.species%> from <%=received_booking.starting_date%> to <%=received_booking.ending_date%>.
+                  <div class="message-name">
+                    <p>Request for your <%= received_booking.plant.species %></p>
+                  </div>
+                 <p><strong><%= received_booking.user.first_name%></strong> as requested to rent your <%= received_booking.plant.species%> from <%=received_booking.starting_date.strftime('%A %d %B')%> to <%=received_booking.ending_date.strftime('%A %d %B')%>.
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-4 col-md-4 flexbox flexbox-center">
+              <div class="col-xs-12 col-sm-1 col-md-1 flexbox flexbox-center">
+                <div class="price">
+                      <p><strong>€<%= (received_booking.total_price.to_f)/100 %></strong></p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-2 col-md-2 flexbox flexbox-center">
                 <div class="message-status text-center">
                   <p class='status <%=received_booking.status%>'><%= received_booking.status %></p>
                 </div>
@@ -76,6 +85,7 @@
             </div>
           </li>
         <%end%>
+      <%end%>
       <%end%>
     </div>
   </ul>
