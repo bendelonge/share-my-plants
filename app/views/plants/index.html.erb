@@ -1,43 +1,53 @@
-<div class="search-bar">
-  <%= form_tag plants_path, method: :get do %>
-  <%= text_field_tag :location,
-      params[:location],
-      class: "form-control",
-      placeholder: "Where do you need a plant ?"
-    %>
-    <% end %>
-</div>
-<% if @plants.empty? %>
- <p>Oups, there is no plant yet, why don’t you add your own plants ?</p>
- <%= link_to "Let’s go !", new_owner_plant_path, class: "btn btn-warning"%>
+<div class="plants-index">
+  <% if @plants.empty? %>
+   <p>Oups, there is no plant yet, why don’t you add your own plants ?</p>
+   <%= link_to "Let’s go !", new_owner_plant_path, class: "btn btn-warning"%>
+   <% else %>
+  <div>
+    <div>
+      <%= form_tag plants_path, method: :get do %>
+      <%= text_field_tag :location,
+          params[:location],
+          class: "form-control search-bar",
+          placeholder: "Where do you need a plant ?"
+        %>
+        <% end %>
+    </div>
 
-<% else %>
-    <div class="container-plants">
-      <div class="row">
-        <% @plants.each do |plant| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card-container">
-            <div class="card" style="background-image: linear-gradient(rgba(0, 101, 168, 0.11), rgba(0, 36, 61, 0.21)), url('<%= cl_image_path plant.main_picture, height: 300, crop: :fill unless plant.main_picture.nil? %>')" >
-              <div class="container-description">
-                <div class="container-species-city">
-                <h2 class="card-description"><%= plant.species %></h2>
-                <p class="card-city"><%= plant.city_location %></p>
+        <div class="container-plants">
+          <div class="row">
+            <% @plants.each do |plant| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="card-container">
+                  <div class="card" style="background-image: linear-gradient(rgba(0, 101, 168, 0.11), rgba(0, 36, 61, 0.21)), url('<%= cl_image_path plant.main_picture, height: 300, crop: :fill unless plant.main_picture.nil? %>')" >
+                    <div class="container-description">
+                      <div class="container-species-city">
+                        <h2 class="card-description"><%= plant.species %></h2>
+                        <p class="card-city"><%= plant.city_location %></p>
+                      </div>
+                      <h3 class="card-price-per-day"> <%= (plant.price_per_day) / 100 %>€/j</h3>
+                    </div>
+                  </div>
+                  <div>
+                    <%= link_to 'rent now', plant_path(plant), class: "btn-rent-plant" %>
+                  </div>
                 </div>
-                <h3 class="card-price-per-day"> <%= (plant.price_per_day) / 100 %>€/j</h3>
               </div>
-              <div>
-              <%= link_to 'rent now', plant_path(plant), class: "btn-rent-plant" %>
-              </div>
-            </div>
+            <% end %>
           </div>
-          <% end %>
+
         </div>
-        <div
-          id="map"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-        ></div>
-      </div>
-<% end %>
+
+  </div>
+
+  <div class="map-div"
+    id="map"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <% end %>
+</div>
+
+
 
 
