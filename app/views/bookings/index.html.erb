@@ -14,7 +14,6 @@
               <div class="col-xs-12 col-sm-2 col-md-2">
                 <div class="text-center">
                   <%= cl_image_tag received_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
-
                 </div>
               </div>
               <div class="col-xs-12 col-sm-7 col-md-7 flexbox flexbox-center">
@@ -28,17 +27,13 @@
               </div>
               <div class="col-xs-12 col-sm-1 col-md-1 flexbox flexbox-center">
                 <div class="price">
-                      <p><strong>€<%= (received_booking.total_price.to_f)/100 %></strong></p>
+                  <p><strong>€<%= (received_booking.total_price.to_f)/100 %></strong></p>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-2 col-md-2 flexbox flexbox-center">
                 <div class="message-status text-center">
-                  <%= link_to accept_booking_path(received_booking), method: :patch do %>
-                    <div class="btn-booking btn-success text-center">Approve</div>
-                  <% end %>
-                  <%= link_to deny_booking_path(received_booking), method: :patch do %>
-                    <div class="btn-booking btn-danger text-center">Deny</div>
-                  <% end %>
+                  <%= link_to "Approve", accept_booking_path(received_booking), method: :patch, class: "btn-booking btn-success text-center" %>
+                  <%= link_to "Deny", deny_booking_path(received_booking), method: :patch, class: "btn-booking btn-deny text-center" %>
                 </div>
               </div>
 

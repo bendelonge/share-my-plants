@@ -54,7 +54,6 @@ margin: auto;
 }
 .message-status {
   font-size: 17px;
-  font-weight: bold;
 }
 
 .status.approved {
@@ -76,7 +75,22 @@ margin: auto;
   border-radius: 4px;
 }
 
+.btn-booking:hover {
+  text-decoration: none;
+}
+
 .price p {
   font-size: 15px;
   color: black;
+}
+
+.btn-deny {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+
+.btn-deny:hover {
+
+  color: red;
+  text-decoration: none;
 }
