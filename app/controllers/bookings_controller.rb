@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.total_price = calculate_total_price
     @booking.save
-    redirect_to bookings_path
+    redirect_to requests_path
   end
 
   def accept
