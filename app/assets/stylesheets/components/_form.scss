@@ -4,6 +4,7 @@
   padding-bottom: 30px;
   display: flex;
   justify-content: center;
+  min-height:100%;
 }
 
 .container-form-login {
@@ -59,6 +60,10 @@ vertical-align: center;
       background: #3ac162;
       text-decoration: none;
       color: white;
+      transform: scale(1.05,1.05);
+      box-shadow: 1px 1px 1px 1px rgba(0,0,0,.05);
+      cursor:pointer;
+      transition: all 0.2s;
     }
 
 .login-sign-up-link {
@@ -129,6 +134,10 @@ vertical-align: center;
   background: #3ac162;
   text-decoration: none;
   color: white;
+  transform: scale(1.05,1.05);
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,.05);
+  cursor:pointer;
+  transition: all 0.2s;
 }
 
 .btn-form-password-reset {
@@ -140,6 +149,7 @@ vertical-align: center;
   color: white;
   margin-bottom: 30px;
   font-size: 16px;
+
 }
 
 .btn-form-password-reset:hover {
@@ -147,6 +157,10 @@ vertical-align: center;
   background: #3ac162;
   text-decoration: none;
   color: white;
+  transform: scale(1.05,1.05);
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,.05);
+  cursor:pointer;
+  transition: all 0.2s;
 }
 
 .link-sign-up-forgot-password {

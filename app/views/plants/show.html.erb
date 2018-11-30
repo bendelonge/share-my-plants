@@ -10,9 +10,8 @@
           <div class="owner-picture" style="background-image: url('<%= cl_image_path @owner.profile_picture, height: 80, :crop => :thumb, :gravity => :face %>')" >
           </div>
           <div class="owner-details">
-
             <ul>
-              <li><%= @owner.first_name%> <%= @owner.last_name %></li>
+              <li class="owner-name"><%= @owner.first_name%> <%= @owner.last_name %></li>
               <li><i class="fas fa-phone"></i> <%= @owner.phone_number %></li>
               <li><i class="fas fa-at"></i> <%= @owner.email %></li>
             </ul>
