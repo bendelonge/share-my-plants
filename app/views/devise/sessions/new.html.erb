@@ -1,7 +1,7 @@
 <div class="background-form-login-sign-up">
   <div class="container-form-login">
   <h2>Hello, you can log in here</h2>
-  <%= simple_form_for(resource, as: resource_name, url: plants_path) do |f| %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs-login">
       <%= f.input :email,
                   label: false,
