@@ -22,8 +22,19 @@
     </div>
   </div>
     <% end %>
-        <div >
-          <%= link_to "+", new_owner_plant_path, class: 'rent-button'%>
+        <div class="col-xs-6 col-sm-5 col-md-3">
+          <div class="card-container">
+            <div class="card-add">
+              <%= link_to new_owner_plant_path, class: 'rent-button' do%>
+                <i class="fas fa-plus-circle"></i>
+                <h6>Add a new plant</h6>
+                <% end %>
+
+            </div>
+
+          </div>
+
+
         </div>
 </div>
 </div>
