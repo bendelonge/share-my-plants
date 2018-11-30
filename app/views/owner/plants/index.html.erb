@@ -10,7 +10,7 @@
             <p class="card-city"><%= plant.city_location %></p>
           </div>
          <i class="fas fa-align-justify page" title=" <%= plant.description %>"></i>
-            <h3 class="card-price-per-day"> <%= (plant.price_per_day) / 100 %>€/j</h3>
+            <h3 class="card-price-per-day"> <%= plant.price_per_day.fdiv(100) %>€/j</h3>
           </div>
             <%= link_to edit_owner_plant_path(plant.id) do %>
             <i class="fas fa-pencil-alt pen"></i>
@@ -22,8 +22,17 @@
     </div>
   </div>
     <% end %>
-        <div>
-          <%= link_to "+", new_owner_plant_path, class: 'rent-button'%>
+        <div class="col-xs-6 col-sm-5 col-md-3">
+          <div class="card-container">
+            <div class="card-add">
+              <%= link_to new_owner_plant_path, class: 'rent-button' do%>
+                <i class="fas fa-plus-circle"></i>
+                <h6>Add a new plant</h6>
+                <% end %>
+
+            </div>
+
+          </div>
         </div>
 </div>
 </div>

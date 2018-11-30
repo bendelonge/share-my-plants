@@ -2,7 +2,8 @@ class BookingsController < ApplicationController
   before_action :find_booking, only: [:accept, :deny]
 
   def index
-    @received_bookings = current_user.received_bookings
+    @received_bookings =  current_user.received_bookings
+                                      .order(starting_date: :desc)
   end
 
   def new
@@ -15,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.total_price = calculate_total_price
     @booking.save
-    redirect_to bookings_path
+    redirect_to requests_path
   end
 
   def accept

@@ -1,6 +1,10 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 
+
+
+
+
 const mapElement = document.getElementById('map');
 
 if (mapElement) { // only build a map if there's a div#map to inject into
@@ -39,4 +43,15 @@ if (mapElement) { // only build a map if there's a div#map to inject into
     map.fitBounds(bounds, { duration: 0, padding: 75 })
   }
 }
+
+
+const addressInput = document.getElementById('plant_address');
+
+if (addressInput) {
+  const places = require('places.js');
+  const placesAutocomplete = places({
+    container: addressInput
+  });
+}
+
 

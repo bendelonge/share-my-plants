@@ -20,6 +20,9 @@
   }
 }
 
+.search {
+  margin: 20px;
+}
 
 .search-bar {
   margin: 30px;
@@ -27,6 +30,11 @@
   justify-content: space-around;
 }
 
+.container-plants {
+  display: flex;
+  padding-left: 40px;
+  min-height: calc(100vh - 140px);
+}
 
 .card-container {
   width: 230px;
@@ -173,8 +181,33 @@
   margin-top: 30px;
 }
 
-.container-plants {
-  min-height: calc(100vh - 140px);
+
+.rent-button{
+
+  text-align: center;
+  font-size: 150px;
+  color: $green;
+  text-decoration: none;
+}
+
+.rent-button:hover{
+  color: $green;
+  }
+
+.card-add {
+  width: 200px;
+  height: 200px;
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 40px;
+  margin: auto auto;
+  border-radius: 2px;
+  text-align: center;
 }
 
 
