@@ -3,7 +3,7 @@
         <div class="plant-main-infos">
             <h1><%=  @plant.species %></h1>
             <h3><%= @plant.full_address %></h3>
-            <h3 class="card-price-per-day"> <%= (@plant.price_per_day) / 100 %>€/day</h3>
+            <h3 class="card-price-per-day"> <%= @plant.price_per_day.fdiv(100) %>€/day</h3>
         </div>
         <p><%= @plant.description %></p>
         <div class="plant-owner">
