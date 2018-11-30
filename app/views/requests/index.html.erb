@@ -1,46 +1,27 @@
 <div class="container-bookings-requests">
-<ul class="list-group list-group-flush">
-  <div class="container-lists">
-    <div class="title text-center">
+  <ul class="list-group list-group-flush">
+    <div class="container-lists">
       <% if @requested_bookings.empty? %>
-        <br><p>You don't have any booking yet!</p>
-        <% else %>
-        <br><p>Check the list below to see your bookings status </p><br>
-    </div>
-    <%@requested_bookings.each do |requested_booking|  %>
-      <li class="list-group-item">
-        <div class="row" style="display: flex;">
-          <div class="col-xs-12 col-sm-2 col-md-2">
-            <div class="text-center">
-              <%= cl_image_tag requested_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-7 col-md-7 flexbox flexbox-center">
-              <div class="message-body">
-                <div class="message-name">
-                  <p> <%= requested_booking.plant.user.first_name %>'s <%= requested_booking.plant.species %></p>
-                </div>
-                <p>
-                 Your booking from <%= requested_booking.plant.user.first_name %>'s <%= requested_booking.plant.species %> is
-                </p>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-1 col-md-1 flexbox flexbox-center">
-              <div class="price">
-                <p><strong>€<%= (requested_booking.total_price.to_f)/100 %></strong></p>
-              </div>
-            </div>
-              <div class="col-xs-12 col-sm-2 col-md-2 flexbox flexbox-center">
-                <div class="message-status">
-                  <p class="status <%=requested_booking.status%>"><%= requested_booking.status %></p>
-                </div>
-              </div>
+        <div class="title text-center">
+          <br><p>You don't have any requests yet!</p>
         </div>
-      </li>
-    <% end %>
-    <%end %>
-  </div>
-</ul>
+
+      <% else %>
+        <div class="title text-center">
+          <br><p>Here is the list of your requests. </p><br>
+        </div>
+
+        <%@requested_pending_bookings.each do |requested_booking|  %>
+          <%= render 'request_card', requested_booking: requested_booking %>
+        <% end %>
+
+        <%@requested_non_pending_bookings.each do |requested_booking|  %>
+          <%= render 'request_card', requested_booking: requested_booking %>
+        <% end %>
+
+      <% end %>
+    </div>
+  </ul>
 </div>
 
 

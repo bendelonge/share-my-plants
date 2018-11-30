@@ -3,10 +3,10 @@
     <div class="container-lists">
       <div class="title text-center">
         <% if @received_bookings.empty? %>
-        <br><p>You don't have any requests yet!</p>
+        <br><p>You don't have any bookings yet!</p>
         <% else %>
         <br><p>Your garden have success!</p>
-        <p>Please take some times to check the pending requests</p><br>
+        <p>Please take some times to check your pending bookings</p><br>
       </div>
       <%@received_bookings.each do |received_booking|  %>
         <%if received_booking.status == "pending"%>
@@ -22,7 +22,7 @@
                   <div class="message-name">
                     <p>Request for your <%= received_booking.plant.species %></p>
                   </div>
-                  <p><strong><%= received_booking.user.first_name%></strong> as requested to rent your <%= received_booking.plant.species%> from <%=received_booking.starting_date.strftime('%A %d %B')%> to <%=received_booking.ending_date.strftime('%A %d %B')%>.
+                  <p><strong><%= received_booking.user.first_name%></strong> has requested to rent your <%= received_booking.plant.species%> from <%=received_booking.starting_date.strftime('%A %d %B')%> to <%=received_booking.ending_date.strftime('%A %d %B')%>.
                   </p>
                 </div>
               </div>
@@ -47,7 +47,7 @@
   <ul class="list-group list-group-flush">
     <div class="container-lists">
       <div class="title text-center">
-        <br><p>Need to see your requestes history?</p>
+        <br><p>Need to see your Bookings history?</p>
         <p>Check the list below!</p><br>
       </div>
       <%@received_bookings.each do |received_booking|  %>

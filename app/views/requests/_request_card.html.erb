@@ -1,0 +1,30 @@
+<li class="list-group-item">
+  <div class="row" style="display: flex;">
+    <div class="col-xs-12 col-sm-2 col-md-2">
+      <div class="text-center">
+        <%= cl_image_tag requested_booking.plant.main_picture, width: 100,height: 100, crop: :fill, class: "img-circle"%>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-7 col-md-7 flexbox flexbox-center">
+      <div class="message-body">
+        <div class="message-name">
+          <p> <%= requested_booking.plant.user.first_name %>'s <%= requested_booking.plant.species %></p>
+        </div>
+        <p>
+          from <%=requested_booking.starting_date.strftime('%A %d %B')%> to <%=requested_booking.ending_date.strftime('%A %d %B')%>.
+        </p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-1 col-md-1 flexbox flexbox-center">
+      <div class="price">
+        <p><strong>€<%= (requested_booking.total_price.to_f)/100 %></strong></p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-2 col-md-2 flexbox flexbox-center">
+      <div class="message-status">
+        <p class="status <%=requested_booking.status%>"><%= requested_booking.status %></p>
+      </div>
+    </div>
+  </div>
+</li>
