@@ -10,7 +10,7 @@
             <p class="card-city"><%= plant.city_location %></p>
           </div>
          <i class="fas fa-align-justify page" title=" <%= plant.description %>"></i>
-            <h3 class="card-price-per-day"> <%= (plant.price_per_day) / 100 %>€/j</h3>
+            <h3 class="card-price-per-day"> <%= plant.price_per_day.fdiv(100) %>€/j</h3>
           </div>
             <%= link_to edit_owner_plant_path(plant.id) do %>
             <i class="fas fa-pencil-alt pen"></i>
