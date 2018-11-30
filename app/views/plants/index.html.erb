@@ -7,16 +7,18 @@
   </div>
 <% else %>
   <div class="plants-index">
-  <div>
-    <div>
+    <div class="search">
       <%= form_tag plants_path, method: :get do %>
-      <%= text_field_tag :location,
-          params[:location],
-          class: "form-control search-bar",
-          placeholder: "Where do you need a plant ?"
-        %>
-        <% end %>
+        <div class="input-group">
+          <%= text_field_tag :location, params[:location], class:'form-control', id: "plant_address",
+          placeholder: "Where do you need a plant ?"%>
+          <span class="input-group-btn">
+            <%= button_tag( :class => "btn btn-default") do %>
+            <span class='glyphicon glyphicon-search'></span>
+          <% end %>
+          </span>
     </div>
+<% end %>
         <div class="container-plants">
           <div class="row">
             <% @plants.each do |plant| %>
